@@ -117,12 +117,17 @@ SDK script
 ---
 
 `<script>` นี้คือตัว `SDK` โดยสามารถแปะ `<script>` นี้บนหน้า web ที่ต้องการติดตั้ง `SDK`
+
+<details>
+  <summary>SDK snippet</summary>
  
-```html
-<script>
-!function(t,e){"object"==typeof exports&&"undefined"!=typeof module?e(exports):"function"==typeof define&&define.amd?define(["exports"],e):e((t="undefined"!=typeof globalThis?globalThis:t||self).growth={})}(this,(function(t){"use strict";var e=function(t,e){return t(e={exports:{}},e.exports),e.exports}((function(t,e){var n;n=function(){function t(){for(var t=0,e={};t<arguments.lengtha;t++){var n=arguments[t];for(var r in n)e[r]=n[r]}return e}function e(t){return t.replace(/(%[0-9A-Z]{2})+/g,decodeURIComponent)}return function n(r){function o(){}function i(e,n,i){if("undefined"!=typeof document){"number"==typeof(i=t({path:"/"},o.defaults,i)).expires&&(i.expires=new Date(1*new Date+864e5*i.expires)),i.expires=i.expires?i.expires.toUTCString():"";try{var c=JSON.stringify(n);/^[\{\[]/.test(c)&&(n=c)}catch(t){}n=r.write?r.write(n,e):encodeURIComponent(String(n)).replace(/%(23|24|26|2B|3A|3C|3E|3D|2F|3F|40|5B|5D|5E|60|7B|7D|7C)/g,decodeURIComponent),e=encodeURIComponent(String(e)).replace(/%(23|24|26|2B|5E|60|7C)/g,decodeURIComponent).replace(/[\(\)]/g,escape);var a="";for(var u in i)i[u]&&(a+="; "+u,!0!==i[u]&&(a+="="+i[u].split(";")[0]));return document.cookie=e+"="+n+a}}function c(t,n){if("undefined"!=typeof document){for(var o={},i=document.cookie?document.cookie.split("; "):[],c=0;c<i.length;c++){var a=i[c].split("="),u=a.slice(1).join("=");n||'"'!==u.charAt(0)||(u=u.slice(1,-1));try{var s=e(a[0]);if(u=(r.read||r)(u,s)||e(u),n)try{u=JSON.parse(u)}catch(t){}if(o[s]=u,t===s)break}catch(t){}}return t?o[t]:o}}return o.set=i,o.get=function(t){return c(t,!1)},o.getJSON=function(t){return c(t,!0)},o.remove=function(e,n){i(e,"",t(n,{expires:-1}))},o.defaults={},o.withConverter=n,o}((function(){}))},t.exports=n()})),n=function(){return(n=Object.assign||function(t){for(var e,n=1,r=arguments.length;n<r;n++)for(var o in e=arguments[n])Object.prototype.hasOwnProperty.call(e,o)&&(t[o]=e[o]);return t}).apply(this,arguments)};function r(t,e,n,r){return new(n||(n=Promise))((function(o,i){function c(t){try{u(r.next(t))}catch(t){i(t)}}function a(t){try{u(r.throw(t))}catch(t){i(t)}}function u(t){var e;t.done?o(t.value):(e=t.value,e instanceof n?e:new n((function(t){t(e)}))).then(c,a)}u((r=r.apply(t,e||[])).next())}))}function o(t,e){var n,r,o,i,c={label:0,sent:function(){if(1&o[0])throw o[1];return o[1]},trys:[],ops:[]};return i={next:a(0),throw:a(1),return:a(2)},"function"==typeof Symbol&&(i[Symbol.iterator]=function(){return this}),i;function a(i){return function(a){return function(i){if(n)throw new TypeError("Generator is already executing.");for(;c;)try{if(n=1,r&&(o=2&i[0]?r.return:i[0]?r.throw||((o=r.return)&&o.call(r),0):r.next)&&!(o=o.call(r,i[1])).done)return o;switch(r=0,o&&(i=[2&i[0],o.value]),i[0]){case 0:case 1:o=i;break;case 4:return c.label++,{value:i[1],done:!1};case 5:c.label++,r=i[1],i=[0];continue;case 7:i=c.ops.pop(),c.trys.pop();continue;default:if(!(o=c.trys,(o=o.length>0&&o[o.length-1])||6!==i[0]&&2!==i[0])){c=0;continue}if(3===i[0]&&(!o||i[1]>o[0]&&i[1]<o[3])){c.label=i[1];break}if(6===i[0]&&c.label<o[1]){c.label=o[1],o=i;break}if(o&&c.label<o[2]){c.label=o[2],c.ops.push(i);break}o[2]&&c.ops.pop(),c.trys.pop();continue}i=e.call(t,c)}catch(t){i=[6,t],r=0}finally{n=o=0}if(5&i[0])throw i[1];return{value:i[0]?i[1]:void 0,done:!0}}([i,a])}}}var i={ACCOUNT:"ctc",ACCOUNT_CLIENT_URL:"https://api.growthai.marketing/account/contacts/ctc",MTC_URL:"https://ctc.growthai.marketing/mtc.js"},c=function(){return i},a=c().MTC_URL,u=function(t){mt("send","pageview",n({},t))},s=c().ACCOUNT_CLIENT_URL,f=function(t){return t.ok?t.json():{hasError:!0,message:t.statusText}},l=function(){return localStorage.mtc_id},d=function(t,e,n){return fetch(s+"/"+n,{method:t,headers:{"Content-Type":"application/json"},body:e}).then(f)},p="Accepted",h=function(){return r(void 0,void 0,void 0,(function(){var t;return o(this,(function(e){switch(e.label){case 0:return t={method:"GET",headers:{"Content-Type":"application/json"}},[4,fetch(s+"/"+l(),t).then(f)];case 1:return[2,e.sent()]}}))}))};t.acceptConsent=function(){return r(void 0,void 0,void 0,(function(){var t;return o(this,(function(e){switch(e.label){case 0:return t={tags:[p]},[4,d("PATCH",JSON.stringify(t),l()+"/update")];case 1:return[2,e.sent()]}}))}))},t.createContact=function(t){return r(void 0,void 0,void 0,(function(){var e,r,i;return o(this,(function(o){switch(o.label){case 0:return e=t.tags,(r=void 0===e?[]:e).includes(p)||r.push(p),i=n(n({},t),{tags:r}),[4,d("PATCH",JSON.stringify(i),l()+"/update")];case 1:return[2,o.sent()]}}))}))},t.declineConsent=function(){return r(void 0,void 0,void 0,(function(){var t;return o(this,(function(e){switch(e.label){case 0:return t={tags:["-Accepted"]},[4,d("PATCH",JSON.stringify(t),l()+"/update")];case 1:return[2,e.sent()]}}))}))},t.getConsent=function(){return r(void 0,void 0,void 0,(function(){var t;return o(this,(function(e){switch(e.label){case 0:return[4,h()];case 1:return(t=e.sent()).hasError?[2,t]:[2,t.contact.tags.map((function(t){return t.tag})).includes("Accepted")]}}))}))},t.getContact=h,t.init=function(){var t,n,r,o,i,c,s,f=localStorage.mtc_id,l=localStorage.mautic_device_id;t=window,n=document,r="script",o=a,i="mt",t.MauticTrackingObject=i,t.mt=t.mt||function(){(t.mt.q=t.mt.q||[]).push(arguments)},c=n.createElement(r),s=n.getElementsByTagName(r)[0],c.async=1,c.src=o,s.parentNode.insertBefore(c,s),f||l||u({}),e.set("mtc_id",f),e.set("mtc_sid",l),e.set("mautic_device_id",l)},t.login=function(t){return r(void 0,void 0,void 0,(function(){var n,r,i;return o(this,(function(o){switch(o.label){case 0:return[4,d("POST",JSON.stringify(t),"login")];case 1:return n=o.sent(),r=n.id,i=n.tracking_id,r||i?(function(t,n){localStorage.mtc_id=t,localStorage.mtc_sid=n,localStorage.mautic_device_id=n,e.set("mtc_id",t),e.set("mtc_sid",n),e.set("mautic_device_id",n)}(r,i),localStorage.mtc_is_login=!0,[2,!0]):[2,!1]}}))}))},t.sentEvent=u,Object.defineProperty(t,"__esModule",{value:!0})}));
-</script>
-```
+  ```html
+  <script>
+  !function(t,e){"object"==typeof exports&&"undefined"!=typeof module?e(exports):"function"==typeof define&&define.amd?define(["exports"],e):e((t="undefined"!=typeof globalThis?globalThis:t||self).growth={})}(this,(function(t){"use strict";var e=function(t,e){return t(e={exports:{}},e.exports),e.exports}((function(t,e){var n;n=function(){function t(){for(var t=0,e={};t<arguments.lengtha;t++){var n=arguments[t];for(var r in n)e[r]=n[r]}return e}function e(t){return t.replace(/(%[0-9A-Z]{2})+/g,decodeURIComponent)}return function n(r){function o(){}function i(e,n,i){if("undefined"!=typeof document){"number"==typeof(i=t({path:"/"},o.defaults,i)).expires&&(i.expires=new Date(1*new Date+864e5*i.expires)),i.expires=i.expires?i.expires.toUTCString():"";try{var c=JSON.stringify(n);/^[\{\[]/.test(c)&&(n=c)}catch(t){}n=r.write?r.write(n,e):encodeURIComponent(String(n)).replace(/%(23|24|26|2B|3A|3C|3E|3D|2F|3F|40|5B|5D|5E|60|7B|7D|7C)/g,decodeURIComponent),e=encodeURIComponent(String(e)).replace(/%(23|24|26|2B|5E|60|7C)/g,decodeURIComponent).replace(/[\(\)]/g,escape);var a="";for(var u in i)i[u]&&(a+="; "+u,!0!==i[u]&&(a+="="+i[u].split(";")[0]));return document.cookie=e+"="+n+a}}function c(t,n){if("undefined"!=typeof document){for(var o={},i=document.cookie?document.cookie.split("; "):[],c=0;c<i.length;c++){var a=i[c].split("="),u=a.slice(1).join("=");n||'"'!==u.charAt(0)||(u=u.slice(1,-1));try{var s=e(a[0]);if(u=(r.read||r)(u,s)||e(u),n)try{u=JSON.parse(u)}catch(t){}if(o[s]=u,t===s)break}catch(t){}}return t?o[t]:o}}return o.set=i,o.get=function(t){return c(t,!1)},o.getJSON=function(t){return c(t,!0)},o.remove=function(e,n){i(e,"",t(n,{expires:-1}))},o.defaults={},o.withConverter=n,o}((function(){}))},t.exports=n()})),n=function(){return(n=Object.assign||function(t){for(var e,n=1,r=arguments.length;n<r;n++)for(var o in e=arguments[n])Object.prototype.hasOwnProperty.call(e,o)&&(t[o]=e[o]);return t}).apply(this,arguments)};function r(t,e,n,r){return new(n||(n=Promise))((function(o,i){function c(t){try{u(r.next(t))}catch(t){i(t)}}function a(t){try{u(r.throw(t))}catch(t){i(t)}}function u(t){var e;t.done?o(t.value):(e=t.value,e instanceof n?e:new n((function(t){t(e)}))).then(c,a)}u((r=r.apply(t,e||[])).next())}))}function o(t,e){var n,r,o,i,c={label:0,sent:function(){if(1&o[0])throw o[1];return o[1]},trys:[],ops:[]};return i={next:a(0),throw:a(1),return:a(2)},"function"==typeof Symbol&&(i[Symbol.iterator]=function(){return this}),i;function a(i){return function(a){return function(i){if(n)throw new TypeError("Generator is already executing.");for(;c;)try{if(n=1,r&&(o=2&i[0]?r.return:i[0]?r.throw||((o=r.return)&&o.call(r),0):r.next)&&!(o=o.call(r,i[1])).done)return o;switch(r=0,o&&(i=[2&i[0],o.value]),i[0]){case 0:case 1:o=i;break;case 4:return c.label++,{value:i[1],done:!1};case 5:c.label++,r=i[1],i=[0];continue;case 7:i=c.ops.pop(),c.trys.pop();continue;default:if(!(o=c.trys,(o=o.length>0&&o[o.length-1])||6!==i[0]&&2!==i[0])){c=0;continue}if(3===i[0]&&(!o||i[1]>o[0]&&i[1]<o[3])){c.label=i[1];break}if(6===i[0]&&c.label<o[1]){c.label=o[1],o=i;break}if(o&&c.label<o[2]){c.label=o[2],c.ops.push(i);break}o[2]&&c.ops.pop(),c.trys.pop();continue}i=e.call(t,c)}catch(t){i=[6,t],r=0}finally{n=o=0}if(5&i[0])throw i[1];return{value:i[0]?i[1]:void 0,done:!0}}([i,a])}}}var i={ACCOUNT:"ctc",ACCOUNT_CLIENT_URL:"https://api.growthai.marketing/account/contacts/ctc",MTC_URL:"https://ctc.growthai.marketing/mtc.js"},c=function(){return i},a=c().MTC_URL,u=function(t){mt("send","pageview",n({},t))},s=c().ACCOUNT_CLIENT_URL,f=function(t){return t.ok?t.json():{hasError:!0,message:t.statusText}},l=function(){return localStorage.mtc_id},d=function(t,e,n){return fetch(s+"/"+n,{method:t,headers:{"Content-Type":"application/json"},body:e}).then(f)},p="Accepted",h=function(){return r(void 0,void 0,void 0,(function(){var t;return o(this,(function(e){switch(e.label){case 0:return t={method:"GET",headers:{"Content-Type":"application/json"}},[4,fetch(s+"/"+l(),t).then(f)];case 1:return[2,e.sent()]}}))}))};t.acceptConsent=function(){return r(void 0,void 0,void 0,(function(){var t;return o(this,(function(e){switch(e.label){case 0:return t={tags:[p]},[4,d("PATCH",JSON.stringify(t),l()+"/update")];case 1:return[2,e.sent()]}}))}))},t.createContact=function(t){return r(void 0,void 0,void 0,(function(){var e,r,i;return o(this,(function(o){switch(o.label){case 0:return e=t.tags,(r=void 0===e?[]:e).includes(p)||r.push(p),i=n(n({},t),{tags:r}),[4,d("PATCH",JSON.stringify(i),l()+"/update")];case 1:return[2,o.sent()]}}))}))},t.declineConsent=function(){return r(void 0,void 0,void 0,(function(){var t;return o(this,(function(e){switch(e.label){case 0:return t={tags:["-Accepted"]},[4,d("PATCH",JSON.stringify(t),l()+"/update")];case 1:return[2,e.sent()]}}))}))},t.getConsent=function(){return r(void 0,void 0,void 0,(function(){var t;return o(this,(function(e){switch(e.label){case 0:return[4,h()];case 1:return(t=e.sent()).hasError?[2,t]:[2,t.contact.tags.map((function(t){return t.tag})).includes("Accepted")]}}))}))},t.getContact=h,t.init=function(){var t,n,r,o,i,c,s,f=localStorage.mtc_id,l=localStorage.mautic_device_id;t=window,n=document,r="script",o=a,i="mt",t.MauticTrackingObject=i,t.mt=t.mt||function(){(t.mt.q=t.mt.q||[]).push(arguments)},c=n.createElement(r),s=n.getElementsByTagName(r)[0],c.async=1,c.src=o,s.parentNode.insertBefore(c,s),f||l||u({}),e.set("mtc_id",f),e.set("mtc_sid",l),e.set("mautic_device_id",l)},t.login=function(t){return r(void 0,void 0,void 0,(function(){var n,r,i;return o(this,(function(o){switch(o.label){case 0:return[4,d("POST",JSON.stringify(t),"login")];case 1:return n=o.sent(),r=n.id,i=n.tracking_id,r||i?(function(t,n){localStorage.mtc_id=t,localStorage.mtc_sid=n,localStorage.mautic_device_id=n,e.set("mtc_id",t),e.set("mtc_sid",n),e.set("mautic_device_id",n)}(r,i),localStorage.mtc_is_login=!0,[2,!0]):[2,!1]}}))}))},t.sentEvent=u,Object.defineProperty(t,"__esModule",{value:!0})}));
+  </script>
+  ```
+</details>
+<br>
 
 Initialized script เมื่อ web โหลดสำเร็จ
 ---
@@ -330,4 +335,236 @@ Script ตัวสมบูรณ์ที่ใช้บน creativetalklive
     }
   });
 </script>
+```
+
+# Event Sample
+
+Registeration
+---
+
+<details>
+  <summary>CURL Sample</summary>
+
+  ```sh
+  curl 'https://api.growthai.marketing/account/contacts/ctc/267116/update' \
+    -X 'PATCH' \
+    -H 'Connection: keep-alive' \
+    -H 'sec-ch-ua: "Google Chrome";v="89", "Chromium";v="89", ";Not A Brand";v="99"' \
+    -H 'sec-ch-ua-mobile: ?0' \
+    -H 'User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.114 Safari/537.36' \
+    -H 'Content-Type: application/json' \
+    -H 'Accept: */*' \
+    -H 'Origin: https://creativetalklive.com' \
+    -H 'Sec-Fetch-Site: cross-site' \
+    -H 'Sec-Fetch-Mode: cors' \
+    -H 'Sec-Fetch-Dest: empty' \
+    -H 'Referer: https://creativetalklive.com/user/obdae/?um_action=edit' \
+    -H 'Accept-Language: en-US,en;q=0.9' \
+    --data-raw '{"firstname":"Ob","lastname":"Dae","phone":"08888","email":"a@g.co","tags":["Accepted"]}' \
+    --compressed
+  ```
+</details>
+<br>
+
+#### Request Body
+
+```sh
+{
+   "firstname":"Ob",
+   "lastname":"Dae",
+   "phone":"08888",
+   "email":"a@g.co",
+   "tags":[
+      "Accepted"
+   ]
+}
+```
+
+Login
+---
+<details>
+  <summary>CURL Sample</summary>
+
+  ```sh
+  curl 'https://api.growthai.marketing/account/contacts/ctc/login' \
+    -H 'Connection: keep-alive' \
+    -H 'sec-ch-ua: "Google Chrome";v="89", "Chromium";v="89", ";Not A Brand";v="99"' \
+    -H 'sec-ch-ua-mobile: ?0' \
+    -H 'User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.114 Safari/537.36' \
+    -H 'Content-Type: application/json' \
+    -H 'Accept: */*' \
+    -H 'Origin: https://creativetalklive.com' \
+    -H 'Sec-Fetch-Site: cross-site' \
+    -H 'Sec-Fetch-Mode: cors' \
+    -H 'Sec-Fetch-Dest: empty' \
+    -H 'Referer: https://creativetalklive.com/user/obdae/?um_action=edit' \
+    -H 'Accept-Language: en-US,en;q=0.9' \
+    --data-raw '{"firstname":"Ob","lastname":"Dae","email":"a@g.co"}' \
+    --compressed
+  ```
+</details>  
+<br>
+
+#### Request Body
+
+```sh
+{
+   "firstname":"Ob",
+   "lastname":"Dae",
+   "email":"a@g.co"
+}
+```
+
+Page view
+---
+
+<details>
+  <summary>CURL Sample</summary>
+
+  ```sh
+  curl 'https://ctc.growthai.marketing/mtc/event' \
+    -H 'Connection: keep-alive' \
+    -H 'sec-ch-ua: "Google Chrome";v="89", "Chromium";v="89", ";Not A Brand";v="99"' \
+    -H 'X-Requested-With: XMLHttpRequest' \
+    -H 'sec-ch-ua-mobile: ?0' \
+    -H 'User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.114 Safari/537.36' \
+    -H 'Content-Type: application/x-www-form-urlencoded' \
+    -H 'Accept: */*' \
+    -H 'Origin: https://creativetalklive.com' \
+    -H 'Sec-Fetch-Site: cross-site' \
+    -H 'Sec-Fetch-Mode: cors' \
+    -H 'Sec-Fetch-Dest: empty' \
+    -H 'Referer: https://creativetalklive.com/user/obdae/?um_action=edit' \
+    -H 'Accept-Language: en-US,en;q=0.9' \
+    -H 'Cookie: mautic_device_id=qpqvuv13ebsldz1bmnk1mtw; mtc_id=267116; mtc_sid=qpqvuv13ebsldz1bmnk1mtw; mautic_referer_id=510870' \
+    --data-raw 'page_title=Creative%20Talk%20%7C%20%E0%B9%81%E0%B8%AB%E0%B8%A5%E0%B9%88%E0%B8%87%E0%B8%84%E0%B8%A7%E0%B8%B2%E0%B8%A1%E0%B8%A3%E0%B8%B9%E0%B9%89%E0%B8%94%E0%B9%89%E0%B8%B2%E0%B8%99%20Creative%20Design%2C%20Digital%20Marketing%2C%20Technology%20and%20Startup&page_language=en-US&page_referrer=creativetalklive.com&page_url=https%3A%2F%2Fcreativetalklive.com%2Fuser%2Fobdae%2F%3Fum_action%3Dedit&counter=0&timezone_offset=-420&resolution=1440x900&platform=MacOS&do_not_track=false&mtc_id=267116&mtc_sid=hs6mwl0vud9ru3zkz58i3bw&mtc_is_login=true&mautic_device_id=hs6mwl0vud9ru3zkz58i3bw&custom_category=registration&custom_action=registration&custom_title=registration' \
+    --compressed
+  ```
+</details>
+<br>
+
+
+#### Registration page view request body
+
+```sh
+custom_category: registration
+custom_action: registration
+custom_title: registration
+```
+
+<details>
+  <summary>CURL Sample</summary>
+
+  ```sh
+  curl 'https://ctc.growthai.marketing/mtc/event' \
+    -H 'Connection: keep-alive' \
+    -H 'sec-ch-ua: "Google Chrome";v="89", "Chromium";v="89", ";Not A Brand";v="99"' \
+    -H 'X-Requested-With: XMLHttpRequest' \
+    -H 'sec-ch-ua-mobile: ?0' \
+    -H 'User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.114 Safari/537.36' \
+    -H 'Content-Type: application/x-www-form-urlencoded' \
+    -H 'Accept: */*' \
+    -H 'Origin: https://creativetalklive.com' \
+    -H 'Sec-Fetch-Site: cross-site' \
+    -H 'Sec-Fetch-Mode: cors' \
+    -H 'Sec-Fetch-Dest: empty' \
+    -H 'Referer: https://creativetalklive.com/user/obdae/?um_action=edit' \
+    -H 'Accept-Language: en-US,en;q=0.9' \
+    -H 'Cookie: mautic_device_id=qpqvuv13ebsldz1bmnk1mtw; mtc_id=267116; mtc_sid=qpqvuv13ebsldz1bmnk1mtw; mautic_referer_id=510871' \
+    --data-raw 'page_title=Creative%20Talk%20%7C%20%E0%B9%81%E0%B8%AB%E0%B8%A5%E0%B9%88%E0%B8%87%E0%B8%84%E0%B8%A7%E0%B8%B2%E0%B8%A1%E0%B8%A3%E0%B8%B9%E0%B9%89%E0%B8%94%E0%B9%89%E0%B8%B2%E0%B8%99%20Creative%20Design%2C%20Digital%20Marketing%2C%20Technology%20and%20Startup&page_language=en-US&page_referrer=&page_url=https%3A%2F%2Fcreativetalklive.com%2Fuser%2Fobdae%2F%3Fum_action%3Dedit&counter=0&timezone_offset=-420&resolution=1440x900&platform=MacOS&do_not_track=false&mtc_id=267116&mtc_sid=hs6mwl0vud9ru3zkz58i3bw&mtc_is_login=true&mautic_device_id=hs6mwl0vud9ru3zkz58i3bw&custom_category=login&custom_action=login&custom_title=login' \
+    --compressed
+  ```
+</details>
+<br>
+
+#### Login page view request body
+
+```sh
+custom_category: login
+custom_action: login
+custom_title: login
+```
+
+<details>
+  <summary>CURL Sample</summary>
+
+  ```sh
+  curl 'https://ctc.growthai.marketing/mtc/event' \
+    -H 'Connection: keep-alive' \
+    -H 'sec-ch-ua: "Google Chrome";v="89", "Chromium";v="89", ";Not A Brand";v="99"' \
+    -H 'X-Requested-With: XMLHttpRequest' \
+    -H 'sec-ch-ua-mobile: ?0' \
+    -H 'User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.114 Safari/537.36' \
+    -H 'Content-Type: application/x-www-form-urlencoded' \
+    -H 'Accept: */*' \
+    -H 'Origin: https://creativetalklive.com' \
+    -H 'Sec-Fetch-Site: cross-site' \
+    -H 'Sec-Fetch-Mode: cors' \
+    -H 'Sec-Fetch-Dest: empty' \
+    -H 'Referer: https://creativetalklive.com/7-lessons-from-world-famous-ceos/' \
+    -H 'Accept-Language: en-US,en;q=0.9' \
+    -H 'Cookie: mautic_device_id=qpqvuv13ebsldz1bmnk1mtw; mtc_id=267116; mtc_sid=qpqvuv13ebsldz1bmnk1mtw; mautic_referer_id=510930' \
+    --data-raw 'page_title=7%20%E0%B8%9A%E0%B8%97%E0%B9%80%E0%B8%A3%E0%B8%B5%E0%B8%A2%E0%B8%99%E0%B8%88%E0%B8%B2%E0%B8%81%E0%B8%9C%E0%B8%B9%E0%B9%89%E0%B8%9A%E0%B8%A3%E0%B8%B4%E0%B8%AB%E0%B8%B2%E0%B8%A3%E0%B8%A3%E0%B8%B0%E0%B8%94%E0%B8%B1%E0%B8%9A%E0%B9%82%E0%B8%A5%E0%B8%81%E0%B8%AD%E0%B8%A2%E0%B8%B2%E0%B8%81%E0%B8%9A%E0%B8%AD%E0%B8%81%E0%B8%84%E0%B8%B8%E0%B8%93%20%7C%20CREATIVE%20TALK&page_language=en-US&page_referrer=creativetalklive.com&page_url=https%3A%2F%2Fcreativetalklive.com%2F7-lessons-from-world-famous-ceos%2F&counter=0&timezone_offset=-420&resolution=1440x900&platform=MacOS&do_not_track=false&mtc_id=267116&mtc_sid=qpqvuv13ebsldz1bmnk1mtw&mtc_is_login=true&mautic_device_id=qpqvuv13ebsldz1bmnk1mtw&custom_category=blog&custom_action=pageview&custom_title=entrepreneur' \
+    --compressed
+  ```
+</details>
+<br>
+
+#### Ariticle view request body
+
+```sh
+custom_category: blog
+custom_action: pageview
+custom_title: entrepreneur
+```
+
+#### Podcast view request body
+
+```sh
+custom_category: podcast
+custom_action: pageview
+custom_title: morning call
+```
+
+#### Video view request body
+
+```sh
+custom_category: video
+custom_action: pageview
+custom_title: Digital Marketing
+```
+Share button
+---
+
+<details>
+  <summary>CURL Sample</summary>
+
+  ```sh
+  curl 'https://ctc.growthai.marketing/mtc/event' \
+    -H 'Connection: keep-alive' \
+    -H 'sec-ch-ua: "Google Chrome";v="89", "Chromium";v="89", ";Not A Brand";v="99"' \
+    -H 'X-Requested-With: XMLHttpRequest' \
+    -H 'sec-ch-ua-mobile: ?0' \
+    -H 'User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.114 Safari/537.36' \
+    -H 'Content-Type: application/x-www-form-urlencoded' \
+    -H 'Accept: */*' \
+    -H 'Origin: https://creativetalklive.com' \
+    -H 'Sec-Fetch-Site: cross-site' \
+    -H 'Sec-Fetch-Mode: cors' \
+    -H 'Sec-Fetch-Dest: empty' \
+    -H 'Referer: https://creativetalklive.com/3-casr-land-law/' \
+    -H 'Accept-Language: en-US,en;q=0.9' \
+    -H 'Cookie: mautic_device_id=qpqvuv13ebsldz1bmnk1mtw; mtc_id=267116; mtc_sid=qpqvuv13ebsldz1bmnk1mtw; mautic_referer_id=510965' \
+    --data-raw 'page_title=%E0%B8%81%E0%B8%8E%E0%B8%AB%E0%B8%A1%E0%B8%B2%E0%B8%A2%E0%B9%83%E0%B8%99%E0%B8%8A%E0%B8%B5%E0%B8%A7%E0%B8%B4%E0%B8%95%E0%B8%9B%E0%B8%A3%E0%B8%B0%E0%B8%88%E0%B8%B3%E0%B8%A7%E0%B8%B1%E0%B8%99%203%20%E0%B8%82%E0%B9%89%E0%B8%AD%E0%B8%96%E0%B8%81%E0%B9%80%E0%B8%96%E0%B8%B5%E0%B8%A2%E0%B8%87%20%E0%B8%94%E0%B8%A3%E0%B8%B2%E0%B8%A1%E0%B9%88%E0%B8%B2%E0%B8%A3%E0%B8%AD%E0%B8%9A%E0%B8%A3%E0%B8%B1%E0%B9%89%E0%B8%A7%E0%B8%9A%E0%B9%89%E0%B8%B2%E0%B8%99%20%7C%20CREATIVE%20TALK&page_language=en-US&page_referrer=creativetalklive.com&page_url=https%3A%2F%2Fcreativetalklive.com%2F3-casr-land-law%2F&counter=1&timezone_offset=-420&resolution=1440x900&platform=MacOS&do_not_track=false&mtc_id=267116&mtc_sid=qpqvuv13ebsldz1bmnk1mtw&mtc_is_login=true&mautic_device_id=qpqvuv13ebsldz1bmnk1mtw&custom_category=blog&custom_action=share&custom_title=living' \
+    --compressed
+  ```
+</details>
+<br>
+
+#### Share button click request Body
+
+```sh
+custom_category: blog
+custom_action: share
+custom_title: living
 ```
