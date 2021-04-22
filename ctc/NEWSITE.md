@@ -14,19 +14,19 @@ growth.init();
 
 ![](images/new_site/1_regis.png)
 
-<center>ภาพ 1: หน้า login/registration ในจังหว่ะนี้ user จะมีสถานะเป็น anonymous</center>
+<p align="center">ภาพ 1: หน้า login/registration ในจังหว่ะนี้ user จะมีสถานะเป็น anonymous</p>
 <br>
 
 **2. เมื่อทำการสมัครเสร็จแล้วควรมีการส่งข้อมูลการสมัครมายัง `Growth`**
 
 ![](images/new_site/2_regis_success.png)
 
-<center>ภาพ 2: หน้าการกรอกข้อมูล user สามารถส่งข้อมูลผ่าน sdk ตอนที่กด "create account"</center>
+<p align="center">ภาพ 2: หน้าการกรอกข้อมูล user สามารถส่งข้อมูลผ่าน sdk ตอนที่กด "create account"</p>
 <br>
 
 ![](images/new_site/3_regis_redirect.png)
 
-<center>ภาพ 3: หรือสามารถทำการส่งข้อมูลหลังจากถูก redirect มาทีหน้านี้พร้อม query param ก็ได้</center>
+<p align="center">ภาพ 3: หรือสามารถทำการส่งข้อมูลหลังจากถูก redirect มาทีหน้านี้พร้อม query param ก็ได้</p>
 <br>
 
 ตัวอย่างการใช้ SDK เพื่อ register user นี้บน `Growth`
@@ -47,7 +47,7 @@ growth.createContact({
 
 ![](images/new_site/1_regis.png)
 
-<center>ภาพ 4: หน้า login/registration ในจังหว่ะนี้ user จะมีสถานะเป็น anonymous</center>
+<p align="center">ภาพ 4: หน้า login/registration ในจังหว่ะนี้ user จะมีสถานะเป็น anonymous</p>
 <br>
 
 **2. เมื่อทำการ login เสร็จแล้วควรมีการส่งข้อมูลการสมัครมายัง `Growth`**
@@ -70,7 +70,7 @@ growth.login({
 
 ![](images/new_site/4_content_visit.png)
 
-<center>ภาพ 5: หน้า session</center>
+<p align="center">ภาพ 5: หน้า session</p>
 <br>
 
 **1. เมื่อ session page ได้รับการเข้าชม**
