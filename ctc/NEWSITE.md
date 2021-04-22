@@ -1,74 +1,116 @@
 # New CreativeTalk site journey
 
-ในระบบใหม่อยากให้การ tracking ทำได้ผ่าน query param บน URL bar และ ข้อมูลใน `localStorage`
+## Init
+
+ทำการเรียก `init()` ก่อนใช้ function อื่นๆภายใน `SDK`
+
+```js
+// init example
+growth.init();
+```
 
 ## Registration
-1. ก่อนจะ register user จะเป็น anonymous (ยังไม่ต้องการข้อมูล)
+**1. ก่อนจะ register user จะเป็น anonymous (ยังไม่ต้องการข้อมูล)**
 
 ![](images/new_site/1_regis.png)
 
-2. เมื่อทำการกด 3rd registration แล้ว อยากให้มีการบันทึกข้อมูลดังนี้ลง `localStorage`
+<center>ภาพ 1: หน้า login/registration ในจังหว่ะนี้ user จะมีสถานะเป็น anonymous</center>
+<br>
 
-```sh
-# example
-ctc_email: xxx@gmail.com
-ctc_name: a
-ctc_surname: b
-ctc_mobile: 0xxxxx
-ctc_occupational: engineer
-```
+**2. เมื่อทำการสมัครเสร็จแล้วควรมีการส่งข้อมูลการสมัครมายัง `Growth`**
 
 ![](images/new_site/2_regis_success.png)
 
-3. เมื่อทำการสมัครสำเร็จอยากให้มีการเพิ่ม query param ไปใน url
-
-```sh
-# query param
-?registraion=success
-
-
-# example
-https://play.creativetalk.rgb72.dev?registraion=success
-```
+<center>ภาพ 2: หน้าการกรอกข้อมูล user สามารถส่งข้อมูลผ่าน sdk ตอนที่กด "create account"</center>
+<br>
 
 ![](images/new_site/3_regis_redirect.png)
 
+<center>ภาพ 3: หรือสามารถทำการส่งข้อมูลหลังจากถูก redirect มาทีหน้านี้พร้อม query param ก็ได้</center>
+<br>
+
+ตัวอย่างการใช้ SDK เพื่อ register user นี้บน `Growth`
+
+```js
+// register example
+growth.createContact({
+  email: "xxx@gmail.com",
+  firstname: "firstname",
+  lastsurname: "lastname",
+  mobile: "0949848444",
+  position: "engineer",
+});
+```
 ## Login
 
-1. ก่อนจะ login user จะเป็น anonymous (ยังไม่ต้องการข้อมูล)
+**1. ก่อนจะ login user จะเป็น anonymous (ยังไม่ต้องการข้อมูล)**
 
 ![](images/new_site/1_regis.png)
 
-2. เมื่อทำการกด login แล้ว อยากให้มีการบันทึกข้อมูลดังนี้ลง `localStorage`
+<center>ภาพ 4: หน้า login/registration ในจังหว่ะนี้ user จะมีสถานะเป็น anonymous</center>
+<br>
 
-```sh
-# example
-ctc_email: xxx@gmail.com
-ctc_name: a
-ctc_surname: b
-ctc_mobile: 0xxxxx
-ctc_occupational: engineer
+**2. เมื่อทำการ login เสร็จแล้วควรมีการส่งข้อมูลการสมัครมายัง `Growth`**
+
+```js
+// login example
+growth.login({
+  email: "xxx@gmail.com",
+  firstname: "firstname",
+  lastname: "lastname",
+});
 ```
-
-และมีการเพิ่ม query param ไปใน url
-
-```sh
-# query param
-?login=success
-
-# example
-https://play.creativetalk.rgb72.dev?login=success
-```
-
-![](images/new_site/3_regis_redirect.png)
 
 ## Session visit
 
-```sh
-# example
-custom_category: video
-custom_action: pageview
-custom_title: Digital Marketing
-```
+ในหน้า session นั้นจะสามารถมี action ได้ด้วยกันสามอย่างได้แก่ 
+- pageview
+- video click
+- video end
 
 ![](images/new_site/4_content_visit.png)
+
+<center>ภาพ 5: หน้า session</center>
+<br>
+
+**1. เมื่อ session page ได้รับการเข้าชม**
+
+```js
+// watch click example
+growth.sentEvent({
+  custom_type: "session",
+  custom_category: "creative",
+  custom_title: "ctc-2021_e-commerce-trends-2021",
+  custom_action: "pageview",
+  custom_track_year: "2021",
+  custom_speaker: "ธนาวัฒน์ มาลาบุปผา",
+});
+```
+
+**2. เมื่อ ปุ่ม watch ถูกกด**
+
+```js
+// watch click example
+growth.sentEvent({
+  custom_type: "session",
+  custom_category: "creative",
+  custom_title: "ctc-2021_e-commerce-trends-2021",
+  custom_action: "video_click",
+  custom_track_year: "2021",
+  custom_speaker: "ธนาวัฒน์ มาลาบุปผา",
+});
+```
+
+**3. เมื่อ ชม video จนจบ**
+
+```js
+// watch end example
+growth.sentEvent({
+  custom_type: "session",
+  custom_category: "creative",
+  custom_title: "ctc-2021_e-commerce-trends-2021",
+  custom_action: "video_end",
+  custom_track_year: "2021",
+  custom_speaker: "ธนาวัฒน์ มาลาบุปผา",
+});
+```
