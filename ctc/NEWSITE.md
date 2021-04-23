@@ -73,7 +73,7 @@ growth.login({
 <p align="center">ภาพ 5: หน้า session</p>
 <br>
 
-**1. เมื่อ session page ได้รับการเข้าชม**
+**1. เมื่อ session page ได้รับการเข้าชม** 
 
 ```js
 // watch click example
@@ -114,3 +114,5 @@ growth.sentEvent({
   custom_speaker: "ธนาวัฒน์ มาลาบุปผา",
 });
 ```
+
+> หมายเหตุ: กรณีที่มี speaker หลายคน หรือมี category หลายชนิดเราสามารถ ขัั้นข้อมูลได้ด้วย `|` เช่น `custom_category: "creative|lifestyle|...",` และ `custom_speaker: "ธนาวัฒน์ มาลาบุปผา|จอนนี่ บราวโว้|...",`
