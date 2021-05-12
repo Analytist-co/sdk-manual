@@ -33,12 +33,20 @@ growth.init();
 
 ```js
 // register example
-growth.createContact({
+await growth.createContact({
   email: "xxx@gmail.com",
   firstname: "firstname",
   lastsurname: "lastname",
   mobile: "0949848444",
   position: "engineer",
+});
+```
+
+```js
+growth.sentEvent({
+  custom_action: "registration",
+  custom_title: "registration",
+  custom_category: "registration",
 });
 ```
 ## Login
@@ -54,10 +62,18 @@ growth.createContact({
 
 ```js
 // login example
-growth.login({
+await growth.login({
   email: "xxx@gmail.com",
   firstname: "firstname",
   lastname: "lastname",
+});
+```
+
+```js
+growth.sentEvent({
+  custom_action: "login",
+  custom_title: "login",
+  custom_category: "login",
 });
 ```
 
