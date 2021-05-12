@@ -39,6 +39,7 @@ await growth.createContact({
   lastsurname: "lastname",
   mobile: "0949848444",
   position: "engineer",
+  extra_info_interests: ["People", "Entrepreneurship"]
 });
 ```
 
