@@ -256,7 +256,7 @@ Script ตัวสมบูรณ์ที่ใช้บน creativetalklive
     .filter(item => !EXCLUDE_CATEGORY_LIST.includes(item.trim()))
     .map(item => item.toLowerCase())
     .map(item => item.trim())
-    .join(',');
+    .join('|');
 
 
   async function handlePageView() {   
