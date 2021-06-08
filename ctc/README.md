@@ -180,9 +180,10 @@ Script ที่ทำการส่ง event เมื่อ web โหลด�
     } else {
       growth.sentEvent(
         { 
-          custom_category: getMedia(catValues), 
-          custom_action: ACTIONS.PAGEVIEW, 
-          custom_title: getTitle(catValues),
+          custom_type: getMedia(catValues), 
+          custom_action: ACTIONS.PAGEVIEW,
+          custom_category: getCategory(catValues),
+          custom_title: getTitle(),
         }
       );
     }
@@ -202,10 +203,10 @@ Script ตัวสมบูรณ์ที่ใช้บน creativetalklive
 <script>
   growth.init();
 
-	const catA1 = document.querySelector('.post-categories-container .post-categories');
-	
-	var a1 = catA1 ? catA1.innerText : '';
-	
+  const catA1 = document.querySelector('.post-categories-container .post-categories');
+
+  var a1 = catA1 ? catA1.innerText : '';
+
   const catElements = document.querySelector('.post-single-meta .post-categories-container .post-categories');
   const catValues = catElements
     ? Object.values(catElements.children).map(a => a.innerText)
@@ -238,8 +239,20 @@ Script ตัวสมบูรณ์ที่ใช้บน creativetalklive
     
     return 'blog';
   }
+  
+  const getTitle = () => {
+    let title = '';
+  
+    try{
+      title = document.title.split('|')[0].trim();
+    } catch (e) {
+      console.error('growth.sdk no title found!');
+    }
 
-  const getTitle = (catValues) => catValues
+    return title;
+  }
+
+  const getCategory = (catValues) => catValues
     .filter(item => !EXCLUDE_CATEGORY_LIST.includes(item.trim()))
     .map(item => item.toLowerCase())
     .map(item => item.trim())
@@ -256,7 +269,7 @@ Script ตัวสมบูรณ์ที่ใช้บน creativetalklive
     if (window.location.pathname.split('/')[1] === 'user') {
       const firstname = document.querySelector('[id^="first_name-"]').value || '';
       const lastname = document.querySelector('[id^="last_name-"]').value || '';
-	    const email = document.querySelector('[id^="secondary_user_email-"]').value || '';
+      const email = document.querySelector('[id^="secondary_user_email-"]').value || '';
 
       const contact = await growth.login({ firstname, lastname, email });
 
@@ -273,12 +286,13 @@ Script ตัวสมบูรณ์ที่ใช้บน creativetalklive
       }
     } else {
       growth.sentEvent(
-        { 
-          custom_category: getMedia(catValues), 
-          custom_action: ACTIONS.PAGEVIEW, 
-          custom_title: getTitle(catValues),
-        }
-      );
+         {
+            custom_type: getMedia(catValues), 
+            custom_action: ACTIONS.PAGEVIEW,
+            custom_category: getCategory(catValues),
+            custom_title: getTitle(),
+         }
+       );
     }
   }
 
@@ -319,9 +333,10 @@ Script ตัวสมบูรณ์ที่ใช้บน creativetalklive
       btn.addEventListener('click', () => {
         growth.sentEvent(
           {
-            custom_category: getMedia(catValues), 
+            custom_type: getMedia(catValues), 
             custom_action: ACTIONS.SHARE,
-            custom_title: getTitle(catValues),
+            custom_category: getCategory(catValues),
+            custom_title: getTitle(),
           }
         );
       });
