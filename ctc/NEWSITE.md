@@ -36,7 +36,7 @@ growth.init();
 await growth.createContact({
   email: "xxx@gmail.com",
   firstname: "firstname",
-  lastsurname: "lastname",
+  lastname: "lastname",
   mobile: "0949848444",
   position: "engineer",
   extra_info_interests: ["People", "Entrepreneurship"]
